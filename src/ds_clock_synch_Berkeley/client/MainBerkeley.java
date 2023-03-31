@@ -1,6 +1,5 @@
 package ds_clock_synch_Berkeley.client;
 
-
 import java.rmi.registry.LocateRegistry;
 import java.rmi.registry.Registry;
 import java.time.LocalTime;
@@ -49,7 +48,7 @@ public class MainBerkeley {
 
     private static ServerTime createMachineServer(int machineNumber) throws Exception {
         String serverName = AppConstants.SERVER_NAME;
-        int serverPort=machineNumber;
+        int serverPort = machineNumber;
         Registry machineRegistry = LocateRegistry.getRegistry(serverName, serverPort);
         ServerTime machineServerTime = (ServerTime) machineRegistry.lookup(ServerTimeImpl.class.getSimpleName());
         LocalTime machineTime = machineServerTime.getLocalTime();
